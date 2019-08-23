@@ -1,0 +1,35 @@
+@model Wedding
+<div class="text-right">
+    <a href="/Dashboard">Dashboard</a>
+    <a class="ml-5" href="LogOut">Log Out</a>
+</div>
+<div class="text-left">
+    <h1>Plan Your Wedding</h1>
+</div>
+<form class="col-5" asp-action="CreateWedding" asp-contoller="Home" method="POST">
+    <fieldset>
+        <span asp-validation-for="Bride" class="text-danger"></span>
+        <br>
+        <label class="control-label">Bride</label>
+        <input class="form-control" asp-for="Bride" type="text">
+    </fieldset>
+    <fieldset>
+        <span asp-validation-for="Groom" class="text-danger"></span>
+        <br>
+        <label class="control-label">Groom</label>
+        <input class="form-control" asp-for="Groom" type="text">
+    </fieldset>
+    <fieldset>
+        <span asp-validation-for="Date" class="text-danger"></span>
+        <br>
+        <label class="control-label">Date</label>
+        <input class="form-control" asp-for="Date" type="date">
+    </fieldset>
+    <fieldset>
+        <span asp-validation-for="Address" class="text-danger"></span>
+        <br>
+        <label class="control-label">Wedding Address</label>
+        <input class="form-control" asp-for="Address" type="text">
+    </fieldset>
+    <button class="btn btn-success btn-sm mt-3" type="submit">Submit</button>
+</form>

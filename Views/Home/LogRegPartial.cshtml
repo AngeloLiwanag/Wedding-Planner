@@ -1,0 +1,21 @@
+@model LoggedUser
+<h1 class="text-primary">Login</h1>
+<form class="col" asp-action="LogUser" asp-controller="Home" method="POST">
+    <div class="form-group">
+        <fieldset>
+            <span asp-validation-for="LogEmail" class="text-danger"></span>
+            <br>
+            <label class="control-label">Email Address</label>
+            <input class="form-control" asp-for="LogEmail" type="email">
+        </fieldset>
+    </div>
+    <div class="form-group">
+        <fieldset>
+            <span asp-validation-for="LogPassword" class="text-danger"></span>
+            <br>
+            <label class="control-label">Password</label>
+            <input class="form-control" asp-for="LogPassword" type="password">
+        </fieldset>
+    </div>
+    <button class="btn btn-success btn-sm" type="submit">Submit</button>
+</form>

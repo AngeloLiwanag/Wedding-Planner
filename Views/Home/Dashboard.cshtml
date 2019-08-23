@@ -1,0 +1,37 @@
+@model List<Wedding>
+<div class="text-right">
+    <a href="/LogOut">Log Out</a>
+</div>
+<div class="text-left">
+    <h1>Welcome to the Wedding Planner</h1>
+</div>
+<table class="table table-hover">
+    <thead class="table-primary">
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guest</th>
+        <th>Action</th>
+    </thead>
+    @foreach(var wedding in Model)
+    {
+        <tbody>
+            <td><a href="/Wedding/Info/@wedding.WeddingId">@wedding.Bride & @wedding.Groom</a></td>
+            <td>@wedding.Date</td>
+            <td>@wedding.PeopleList.Count</td>
+            @if(@wedding.Creator == @ViewBag.User)
+            {
+                <td><a href="/Delete/@wedding.WeddingId">Delete</a></td>
+            }else{
+                @if(@wedding.PeopleList.Any(user => user.UserId == @ViewBag.User.UserId))
+                {
+                    <td><a href="/UnRSVP/@wedding.WeddingId">Un-RSVP</a></td> 
+                }else{
+                    <td><a href="/RSVP/@wedding.WeddingId">RSVP</a></td>
+                }
+            }
+        </tbody>
+    }
+</table>
+<div class="text-right">
+    <a class="btn btn-success btn-sm" href="/NewWedding">New Wedding</a>
+</div>

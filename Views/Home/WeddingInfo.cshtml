@@ -1,0 +1,14 @@
+@model Wedding
+<div class="text-right">
+    <a href="/Dashboard">Dashboard</a>
+    <a class="ml-5" href="/LogOut">Log Out</a>
+</div>
+<div class="text-left">
+    <h1>@Model.Bride and @Model.Groom</h1>
+    <h4>Date: @Model.Date</h4>
+    <h4>Guest:</h4>
+    @foreach(var guest in Model.PeopleList)
+    {
+        <p>@guest.User</p>
+    }
+</div>
